@@ -1,5 +1,5 @@
-import Hello from "./components/Hello";
-import Footer from "./components/Footer";
+import Display from "./components/Display";
+import Button from "./components/Button";
 
 import { useState } from "react";
 
@@ -20,14 +20,10 @@ const App = () => {
 
   return(
     <>
-      <h1>Count: {count} </h1>
-      <button onClick={increaseByOne}> plus </button>
-      <button onClick={decreaseByOne}> minus </button>
-      <button onClick={reset}> Reset </button>
-      <Hello name="Michael" age={20} />
-      <Hello name="Peter" age={18} />
-      <Hello name="Sarah" age={21} />
-      <Footer />
+      <Display counter={count} /> 
+      <Button title=" + 1 " eventHandler={increaseByOne} />
+      <Button title=" - 1 " eventHandler={decreaseByOne} />
+      <Button title=" Reset " eventHandler={reset} />
     </>
   );
 }
