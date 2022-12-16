@@ -1,6 +1,7 @@
-const Total = ({ ex1, ex2, ex3 }) => {
+const Total = ({ parts }) => {
+  const total = parts.reduce((acc, part) => acc + part.exercises, 0);
   return(
-    <p>Number of exercises {ex1 + ex2 + ex3}</p>
+    <p>Number of exercises {total}</p>
   );
 }
 
