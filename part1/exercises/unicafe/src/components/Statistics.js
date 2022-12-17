@@ -1,4 +1,4 @@
-import StatsRow from "./StatsRow";
+import StatisticLine from "./StatisticLine";
 
 const Statistics = ({ good, neutral, bad }) => {
   const all = good + neutral + bad;
@@ -15,7 +15,7 @@ const Statistics = ({ good, neutral, bad }) => {
   const getAverage = (good, bad, all) => {
     if(all !== 0){
       const avg = (good - bad) / all;
-      console.log(avg);
+      // console.log(avg);
 
       return avg.toFixed(2);
     }
@@ -36,12 +36,12 @@ const Statistics = ({ good, neutral, bad }) => {
   return(
     <>
       <h1>statistics</h1>
-      <StatsRow text="good" val={good} />
-      <StatsRow text="neutral" val={neutral} />
-      <StatsRow text="bad" val={bad} />
-      <StatsRow text="all" val={all} />
-      <StatsRow text="average" val={getAverage(good, bad, all)} />
-      <StatsRow text="positive" val={`${getPositiveRatio(good, all)}%`} />
+      <StatisticLine text="good" val={good} />
+      <StatisticLine text="neutral" val={neutral} />
+      <StatisticLine text="bad" val={bad} />
+      <StatisticLine text="all" val={all} />
+      <StatisticLine text="average" val={getAverage(good, bad, all)} />
+      <StatisticLine text="positive" val={`${getPositiveRatio(good, all)}%`} />
     </>
   )
 };
