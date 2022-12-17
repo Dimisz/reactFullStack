@@ -1,7 +1,7 @@
 import { useState } from 'react'
 
 import NextButton from './components/NextButton';
-
+import VoteButton from './components/VoteButton';
 const App = () => {
   const anecdotes = [
     'If it hurts, do it more often.',
@@ -13,6 +13,7 @@ const App = () => {
     'Programming without an extremely heavy use of console.log is same as if a doctor would refuse to use x-rays or blood tests when diagnosing patients.'
   ]
 
+  
   // const selectNextHandler = () => {
   //   if(selected === anecdotes.length - 1){
   //     setSelected(0);
@@ -27,13 +28,28 @@ const App = () => {
     //console.log(`Chosen anecdote number ${randInt  + 1} out of ${anecdotes.length} anecdotes`);
     setSelected(randInt);
   }
-   
+  
+  const upvoteHandler = () => {
+
+   //console.log(`points before vote: ${points}`);
+   const cpy = [...points];
+   cpy[selected] += 1;
+   setPoints(cpy);
+   //console.log(`points after vote: ${points}`);
+  //  console.log(anecdotes.length, points.length);
+  }
   const [selected, setSelected] = useState(0)
+  const [points, setPoints] = useState(new Array(anecdotes.length).fill(0));
 
   return (
     <div>
       {anecdotes[selected]}
-      <NextButton clickHandler={selectRandomAnecdote} />
+      <p>has {points[selected]} votes</p>
+      <div>
+        <VoteButton clickHandler={upvoteHandler} />
+        <NextButton clickHandler={selectRandomAnecdote} />
+      </div>
+      
     </div>
   )
 }

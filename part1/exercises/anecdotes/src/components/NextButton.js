@@ -1,8 +1,3 @@
-const NextButton = ({ clickHandler }) => {
-  return (
-  <div>
-    <button onClick={clickHandler}> next anecdote </button>
-  </div>);
-}
+const NextButton = ({ clickHandler }) => <button onClick={clickHandler}> next anecdote </button>;
 
 export default NextButton;
