@@ -1,6 +1,6 @@
 import StatsRow from "./StatsRow";
 
-const Stats = ({ good, neutral, bad }) => {
+const Statistics = ({ good, neutral, bad }) => {
   const all = good + neutral + bad;
 
   const getPositiveRatio = (good, all) => {
@@ -34,4 +34,4 @@ const Stats = ({ good, neutral, bad }) => {
   )
 };
 
-export default Stats;
+export default Statistics;
