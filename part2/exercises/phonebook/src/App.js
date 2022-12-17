@@ -7,11 +7,22 @@ const App = () => {
   ]) 
   const [newName, setNewName] = useState('')
 
+  const isNameUnique = (name) => {
+    const hasName = persons.filter(person => person.name === name);
+    if(hasName.length === 0){
+      return true;
+    }
+    alert(`${name} already added to phonebook`);
+    return false;
+
+  }
   const handleSubmit = (event) => {
     event.preventDefault();
-    setPersons(persons.concat({name: newName}));
-    console.log(`persons: ${persons}`);
-    setNewName('');
+    if(isNameUnique(newName)){
+      setPersons(persons.concat({name: newName}));
+      console.log(`persons: ${persons}`);
+      setNewName('');
+    }
   }
 
   const handleNameInput = (event) => {
@@ -35,7 +46,7 @@ const App = () => {
                                 />
                   )
       }
-      
+
     </div>
   )
 }
