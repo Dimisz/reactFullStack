@@ -5,7 +5,7 @@ const Statistics = ({ good, neutral, bad }) => {
 
   const getPositiveRatio = (good, all) => {
     if(all !== 0){
-      return (good / all) * 100;
+      return ((good / all) * 100).toFixed(2);
     }
     else{
       return 0;
@@ -14,11 +14,23 @@ const Statistics = ({ good, neutral, bad }) => {
 
   const getAverage = (good, bad, all) => {
     if(all !== 0){
-      return (good - bad) / all;
+      const avg = (good - bad) / all;
+      console.log(avg);
+
+      return avg.toFixed(2);
     }
     else {
       return 0;
     }
+  }
+
+  if(all === 0){
+    return(
+      <>
+        <h1>statistics</h1>
+        <p>No feedback given</p>
+      </>
+    );
   }
 
   return(

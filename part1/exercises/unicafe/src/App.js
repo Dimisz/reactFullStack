@@ -14,7 +14,6 @@ const App = () => {
       <Button text="good" handler={()=>setGoodCount(goodCount + 1)} />
       <Button text="bad" handler={()=>setBadCount(badCount + 1)} />
       <Button text="neutral" handler={()=>setNeutralCount(neutralCount + 1)} />
-
       <Statistics good={goodCount} neutral={neutralCount} bad={badCount} />
     </>
   );
