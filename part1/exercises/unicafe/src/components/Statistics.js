@@ -36,12 +36,16 @@ const Statistics = ({ good, neutral, bad }) => {
   return(
     <>
       <h1>statistics</h1>
-      <StatisticLine text="good" val={good} />
-      <StatisticLine text="neutral" val={neutral} />
-      <StatisticLine text="bad" val={bad} />
-      <StatisticLine text="all" val={all} />
-      <StatisticLine text="average" val={getAverage(good, bad, all)} />
-      <StatisticLine text="positive" val={`${getPositiveRatio(good, all)}%`} />
+      <table>
+        <tbody>
+          <StatisticLine text="good" val={good} />
+          <StatisticLine text="neutral" val={neutral} />
+          <StatisticLine text="bad" val={bad} />
+          <StatisticLine text="all" val={all} />
+          <StatisticLine text="average" val={getAverage(good, bad, all)} />
+          <StatisticLine text="positive" val={`${getPositiveRatio(good, all)}%`} />
+        </tbody>
+      </table>
     </>
   )
 };
